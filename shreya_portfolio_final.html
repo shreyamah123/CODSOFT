@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreya Maheshwari - Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    /* --- reset and base --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f6f1;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    /* --- colors I'm using ---
+       green:       #2d6a4f
+       light green: #d8ead1
+       cream:       #f9f6f1
+       white:       #ffffff
+       border:      #e0dbd3
+       dark:        #1a1a1a
+       muted text:  #666
+    */
+
+
+    /* ================================
+       HEADER / NAVBAR
+    ================================ */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e0dbd3;
+      padding: 0 7%;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #2d6a4f;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #555;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2d6a4f;
+    }
+
+
+    /* ================================
+       HERO / HEADER SECTION
+    ================================ */
+
+    .hero {
+      background: #ffffff;
+      padding: 80px 7% 70px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      border-bottom: 1px solid #e0dbd3;
+    }
+
+    /* photo placeholder on the left */
+    .hero-photo {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: #d8ead1;
+      border: 4px solid #2d6a4f;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #2d6a4f;
+    }
+
+    .hero-info {
+      flex: 1;
+    }
+
+    .hero-info .greeting {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #2d6a4f;
+      margin-bottom: 10px;
+    }
+
+    .hero-info h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .hero-info h1 span {
+      color: #2d6a4f;
+    }
+
+    .hero-info .tagline {
+      font-size: 1.05rem;
+      color: #777;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      background: #d8ead1;
+      color: #2d6a4f;
+      font-size: 0.78rem;
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-weight: 500;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-green {
+      background: #2d6a4f;
+      color: #fff;
+      padding: 11px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-green:hover {
+      background: #1f4d38;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #333;
+      border: 1px solid #ccc;
+      padding: 11px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: #2d6a4f;
+      color: #2d6a4f;
+    }
+
+
+    /* ================================
+       SHARED SECTION STYLE
+    ================================ */
+
+    .section {
+      padding: 72px 7%;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: #2d6a4f;
+      margin-bottom: 7px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 40px;
+    }
+
+    hr.line {
+      border: none;
+      border-top: 1px solid #e0dbd3;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+
+    /* ================================
+       ABOUT SECTION
+    ================================ */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 0.97rem;
+      color: #555;
+      margin-bottom: 18px;
+      line-height: 1.9;
+    }
+
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-card {
+      background: #fff;
+      border: 1px solid #e0dbd3;
+      border-left: 4px solid #2d6a4f;
+      border-radius: 7px;
+      padding: 14px 18px;
+    }
+
+    .info-card strong {
+      display: block;
+      font-size: 0.9rem;
+      color: #111;
+      margin-bottom: 3px;
+    }
+
+    .info-card span {
+      font-size: 0.82rem;
+      color: #999;
+    }
+
+
+    /* ================================
+       SKILLS SECTION
+    ================================ */
+
+    .skills-bg {
+      background: #fff;
+      border-top: 1px solid #e0dbd3;
+      border-bottom: 1px solid #e0dbd3;
+      padding: 72px 7%;
+    }
+
+    .skills-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+    }
+
+    .skill-group h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: #f9f6f1;
+      border: 1px solid #e0dbd3;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: #333;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .pill:hover {
+      background: #d8ead1;
+      border-color: #2d6a4f;
+      color: #2d6a4f;
+    }
+
+
+    /* ================================
+       PROJECTS SECTION
+    ================================ */
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: #fff;
+      border: 1px solid #e0dbd3;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.09);
+    }
+
+    /* image placeholder for project */
+    .project-thumb {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+    }
+
+    .thumb-green  { background: #d8ead1; }
+    .thumb-cream  { background: #f0ebe1; }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      background: #d8ead1;
+      color: #2d6a4f;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.87rem;
+      color: #666;
+      line-height: 1.78;
+    }
+
+
+    /* ================================
+       RESUME SECTION
+    ================================ */
+
+    .resume-box {
+      background: #fff;
+      border: 1px solid #e0dbd3;
+      border-radius: 15px;
+      padding: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .resume-left h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .resume-left p {
+      font-size: 0.9rem;
+      color: #777;
+      max-width: 440px;
+      line-height: 1.75;
+    }
+
+    .resume-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .resume-icon {
+      font-size: 3rem;
+    }
+
+    .btn-download {
+      background: #2d6a4f;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-download:hover {
+      background: #1f4d38;
+    }
+
+    .resume-note {
+      font-size: 0.76rem;
+      color: #bbb;
+    }
+
+
+    /* ================================
+       CONTACT SECTION
+    ================================ */
+
+    .contact-dark {
+      background: #1a1a1a;
+      padding: 72px 7%;
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .contact-dark .section-label {
+      color: #5fa87a;
+    }
+
+    .contact-dark .section-title {
+      color: #fff;
+    }
+
+    .contact-dark p {
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-top: -25px;
+      margin-bottom: 38px;
+      line-height: 1.8;
+    }
+
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .contact-item .c-icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-item h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .contact-item a,
+    .contact-item p {
+      color: #ddd;
+      font-size: 0.88rem;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-item a:hover {
+      color: #5fa87a;
+    }
+
+    .contact-btns {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .c-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #fff;
+      padding: 11px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.2s;
+    }
+
+    .c-btn:hover {
+      background: #2d6a4f;
+      border-color: #2d6a4f;
+    }
+
+
+    /* ================================
+       FOOTER
+    ================================ */
+
+    footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      padding: 28px 7%;
+      font-size: 0.82rem;
+      border-top: 1px solid #333;
+    }
+
+    footer span {
+      color: #2d6a4f;
+    }
+
+
+    /* ================================
+       RESPONSIVE
+    ================================ */
+
+    @media (max-width: 768px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding: 50px 6% 45px;
+        gap: 35px;
+        text-align: center;
+      }
+
+      .hero-info h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-badges {
+        justify-content: center;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .skills-columns {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .resume-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .resume-left p {
+        max-width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <!-- ==============================
+       NAVBAR
+  ============================== -->
+  <header>
+    <div class="logo">Shreya Maheshwari</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </header>
+
+
+  <!-- ==============================
+       HERO / HEADER SECTION
+  ============================== -->
+  <section class="hero" id="home">
+
+    <!-- profile photo placeholder — replace src with your real photo -->
+    <div class="hero-photo">SM</div>
+
+    <div class="hero-info">
+      <p class="greeting">👋 Hello, I am</p>
+      <h1>Shreya<br/><span>Maheshwari</span></h1>
+      <p class="tagline">
+        Computer Science Engineering Student &nbsp;·&nbsp;
+        Problem Solver &nbsp;·&nbsp; Hackathon Participant
+      </p>
+      <div class="hero-badges">
+        <span class="badge">B.Tech CSE — 2nd Year</span>
+        <span class="badge">SRMS CET, Bareilly</span>
+        <span class="badge">CGPA 7.9</span>
+        <span class="badge">SIH Participant</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-green">View My Projects</a>
+        <a href="#contact" class="btn-outline">Say Hello</a>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ==============================
+       ABOUT SECTION
+  ============================== -->
+  <div class="section" id="about">
+
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-grid">
+
+      <div class="about-text">
+        <p>
+          Hi! I'm Shreya Maheshwari, a second-year B.Tech Computer Science
+          student at Shri Ram Murti Smarak College of Engineering and Technology,
+          Bareilly. I completed my Class 12th from the CBSE board in 2024 with 76%,
+          and finished my first year of engineering with a CGPA of 7.9.
+        </p>
+        <p>
+          I enjoy building things that solve real problems. In my very first year,
+          I participated in the Smart India Hackathon and built an alcohol detection
+          auto-cut circuit — a hardware device that prevents drunk driving by cutting
+          the vehicle's ignition when alcohol is detected. I also developed a plant
+          disease detection software as a field project, which helps farmers
+          identify crop diseases early through image analysis.
+        </p>
+        <p>
+          I'm someone who values clear thinking, consistent learning, and doing
+          good work. Every project I take on, I give it my full focus and always
+          try to walk away having learned something new.
+        </p>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="info-card">
+          <strong>College</strong>
+          <span>SRMS CET, Bareilly (B.Tech CSE)</span>
+        </div>
+        <div class="info-card">
+          <strong>Class XII — CBSE, 2024</strong>
+          <span>Science Stream · 76%</span>
+        </div>
+        <div class="info-card">
+          <strong>1st Year CGPA: 7.9</strong>
+          <span>Consistent academic performance</span>
+        </div>
+        <div class="info-card">
+          <strong>SIH Hackathon Participant</strong>
+          <span>Smart India Hackathon — Year 1</span>
+        </div>
+        <div class="info-card">
+          <strong>Email</strong>
+          <span>jib45195@gmail.com</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <hr class="line"/>
+
+
+  <!-- ==============================
+       SKILLS SECTION
+  ============================== -->
+  <div class="skills-bg" id="skills">
+    <div class="skills-inner">
+
+      <p class="section-label">What I Bring</p>
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-columns">
+
+        <div class="skill-group">
+          <h4>Professional Skills</h4>
+          <div class="pill-row">
+            <span class="pill">Time Management</span>
+            <span class="pill">Critical Thinking</span>
+            <span class="pill">Team Work</span>
+            <span class="pill">Leadership</span>
+            <span class="pill">Adaptive Learning</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4>Soft Skills</h4>
+          <div class="pill-row">
+            <span class="pill">Communication</span>
+            <span class="pill">Client Relationship Management</span>
+            <span class="pill">Presentation</span>
+            <span class="pill">Problem Solving</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================
+       PROJECTS SECTION
+  ============================== -->
+  <div class="section" id="projects">
+
+    <p class="section-label">What I've Built</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-cards">
+
+      <div class="project-card">
+        <div class="project-thumb thumb-green">🔌</div>
+        <div class="project-body">
+          <span class="project-tag">Hardware · SIH Hackathon</span>
+          <h3>Alcohol Detection Auto-Cut Circuit</h3>
+          <p>
+            A safety device built for drivers. It detects alcohol in the driver's
+            breath using a sensor and automatically cuts the vehicle's ignition
+            if the level crosses the legal limit. Built and demonstrated at Smart
+            India Hackathon during my first year of college.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-thumb thumb-cream">🌿</div>
+        <div class="project-body">
+          <span class="project-tag">Software · Field Project</span>
+          <h3>Plant Disease Detection Software</h3>
+          <p>
+            A software tool that analyses photos of plant leaves and identifies
+            whether the plant is diseased. Designed to help farmers detect
+            crop diseases early so they can act before the damage spreads.
+            Developed as a field project in my first year.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <hr class="line"/>
+
+
+  <!-- ==============================
+       RESUME SECTION
+  ============================== -->
+  <div class="section" id="resume">
+
+    <p class="section-label">My Resume</p>
+    <h2 class="section-title">Download Resume</h2>
+
+    <div class="resume-box">
+
+      <div class="resume-left">
+        <h3>Shreya Maheshwari — Resume</h3>
+        <p>
+          My resume covers my educational background, projects, skills,
+          and hackathon experience. Download it to get a complete picture
+          of what I've done and what I bring to a team.
+        </p>
+      </div>
+
+      <div class="resume-right">
+        <div class="resume-icon">📄</div>
+        <!-- replace # with the real path to your PDF file when you have one -->
+        <a href="#" class="btn-download">⬇ Download PDF</a>
+        <p class="resume-note">PDF · Last updated 2026</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ==============================
+       CONTACT SECTION
+  ============================== -->
+  <section class="contact-dark" id="contact">
+    <div class="contact-inner">
+
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title">Contact Me</h2>
+
+      <p>
+        I'm open to internships, collaborations, and new opportunities.
+        Whether you have a project idea or just want to connect — feel free
+        to reach out. I'll get back to you!
+      </p>
+
+      <div class="contact-cards">
+
+        <div class="contact-item">
+          <div class="c-icon">✉️</div>
+          <h4>Email</h4>
+          <a href="mailto:jib45195@gmail.com">jib45195@gmail.com</a>
+        </div>
+
+        <div class="contact-item">
+          <div class="c-icon">🎓</div>
+          <h4>College</h4>
+          <p>SRMS CET, Bareilly</p>
+        </div>
+
+        <div class="contact-item">
+          <div class="c-icon">📍</div>
+          <h4>Location</h4>
+          <p>Bareilly, Uttar Pradesh</p>
+        </div>
+
+      </div>
+
+      <div class="contact-btns">
+        <a href="mailto:jib45195@gmail.com" class="c-btn">✉ Send Email</a>
+        <a href="https://www.linkedin.com/in/shreya-maheshwari" target="_blank" class="c-btn">in LinkedIn</a>
+        <a href="https://github.com/shreya-maheshwari" target="_blank" class="c-btn">⌥ GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+  <footer>
+    © 2026 <span>Shreya Maheshwari</span> &nbsp;·&nbsp; B.Tech CSE &nbsp;·&nbsp; SRMS CET, Bareilly
+    &nbsp;·&nbsp; Made with HTML &amp; CSS
+  </footer>
+
+
+  <!-- smooth scroll script -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+
+</body>
+</html>
